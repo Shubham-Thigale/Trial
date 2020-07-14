@@ -1,0 +1,93 @@
+<html>   
+   <head>
+      <title>Form Validation</title>      
+      <script type = "text/javascript">
+
+
+         function validate() 
+         {
+           
+              if(document.valform.Name.value == "" ) 
+              {
+                 alert("Please Enter Your Name !" );
+                 return false;
+              }
+              if(document.valform.Email.value == "" ) 
+              {
+               
+                 alert("Please Enter your E-mail !" );
+                
+                 return false;
+              }
+              
+        
+
+              if(document.valform.zipcode.value == "" || document.valform.zipcode.value.length != 6 || isNaN(document.valform.zipcode.value )) 
+             {
+                 alert("Please provide a zip in the format #####." );
+                 return false;
+               }
+              if(document.valform.Country.value == "-1") 
+              {
+                 alert("Please provide your country!" );
+                 return false;
+              }
+              return(true);
+           }
+
+           
+           function validateEmail() {
+         var emailID = document.valform.Email.value;
+         at = emailID.indexOf("@");
+         dot = emailID.lastIndexOf(".");
+         if (at < 1 || ( dot - at < 2 )) {
+            alert("Please enter correct email ID")
+            return false;
+         }
+         return( true );
+      }
+        
+     </script>    
+   </head>
+   
+   <body>
+      <form  name = "valform" onsubmit = "return(validate(),validateEmail())">
+         <table align="center" cellspacing = "5" cellpadding = "3" border = "2px">
+            
+            <tr>
+               <td align = "right"><b>Name</b></td></td>
+               <td><input type = "text" name = "Name" /></td>
+            </tr>
+            
+            <tr>
+               <td align = "right"><b>E-Mail</b></td>
+               <td><input type = "text" name = "Email" /></td>
+            </tr>
+            
+            <tr>
+               <td align = "right"><b>Zip-Code</b></td>
+               <td><input type = "text" name = "zipcode" /></td>
+            </tr>
+            
+            <tr>
+               <td align = "right" ><b>Country</b></td>
+               <td >
+                  <select name = "Country"</select>>
+                     <option value = "-1" selected>Choose Options </option>
+                     <option value = "1">India</option>
+                     <option value = "2">US</option>
+                     <option value = "3">Japan</option>
+                  </select>
+               </td>
+            </tr>
+            
+            <tr></tr>
+                <tr>
+               <table align="center" border = "1">
+               <td><input type = "submit" value = "Submit" ></td>
+            </tr>
+            
+         </table>
+      </form>      
+   </body>
+</html>
